@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Interactive Navigation Menu</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', sans-serif;
+    }
+
+    /* Navbar Styles */
+    .navbar {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background-color: transparent;
+      transition: background-color 0.4s ease, box-shadow 0.4s ease;
+      z-index: 999;
+      padding: 1rem 0;
+    }
+
+    .navbar.scrolled {
+      background-color: #ffffff;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+
+    .nav-list {
+      display: flex;
+      justify-content: center;
+      list-style: none;
+    }
+
+    .nav-list li {
+      margin: 0 1rem;
+    }
+
+    .nav-list a {
+      text-decoration: none;
+      color: #333;
+      font-weight: 500;
+      padding: 0.5rem 1rem;
+      border-radius: 8px;
+      transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .nav-list a:hover {
+      background-color: #007BFF;
+      color: #fff;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+
+    /* Page Sections with Updated Background Colors */
+    section {
+      height: 100vh;
+      padding: 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2rem;
+    }
+
+    #home {
+      background-color: #ffe4e1; /* Pale Pink */
+      color: #333;
+    }
+
+    #about {
+      background-color: #e6ccff; /* Light Purple */
+      color: #333;
+    }
+
+    #services {
+      background-color: #fff9c4; /* Light Yellow */
+      color: #333;
+    }
+
+    #contact {
+      background-color: #ffd8a8; /* Light Orange */
+      color: #333;
+    }
+
+    /* Responsive */
+    @media (max-width: 600px) {
+      .nav-list {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .nav-list li {
+        margin: 0.5rem 0;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation Menu -->
+  <nav class="navbar" id="navbar">
+    <ul class="nav-list">
+      <li><a href="#home">Home</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- Page Sections -->
+  <section id="home">🏠 Home Section</section>
+  <section id="about">📖 About Section</section>
+  <section id="services">🛠️ Services Section</section>
+  <section id="contact">📬 Contact Section</section>
+
+  <!-- JavaScript -->
+  <script>
+    window.addEventListener('scroll', () => {
+      const navbar = document.getElementById('navbar');
+      if (window.scrollY > 50) {
+        navbar.classList.add('scrolled');
+      } else {
+        navbar.classList.remove('scrolled');
+      }
+    });
+  </script>
+</body>
+</html>
